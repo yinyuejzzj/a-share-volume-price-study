@@ -4,7 +4,7 @@ Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: 
 
 **作者**：殷悦（Yue Yin），中南大学数学与统计学院 · yinyue@csu.edu.cn
 **录用**：ICEMGD 2026（第 10 届国际经济管理与绿色发展国际会议），Paper ID `ICEMGD_3008`，2026 年 9 月 28 日，罗马尼亚加拉茨。录用证明见 [paper/acceptance-icemgd-3008.pdf](paper/acceptance-icemgd-3008.pdf)。
-**发表**：Advances in Economics, Management and Political Sciences（ISSN 2754-1169）
+**拟发表载体**：会议论文集 Advances in Economics, Management and Political Sciences（EWA Publishing，ISSN 2754-1169）
 
 ---
 
