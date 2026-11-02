@@ -1,11 +1,10 @@
 # A 股量价复合信号的行业异质性动量增强效应研究
 
-Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: An Ablation Study
+Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: An Ablation Study in China's A-Share Market
 
 **作者**：殷悦（Yue Yin），中南大学数学与统计学院
-**联系方式**：yinyue@csu.edu.cn
-
-本仓库为该论文的公开存档，收录论文全文、统计检验结果表与图表。**不包含研究代码**，代码可向作者索取。
+**录用**：ICEMGD 2026（第 10 届国际经济管理与绿色发展国际会议），Paper ID `ICEMGD_3008`，2026 年 9 月 28 日，罗马尼亚加拉茨。录用证明见 [paper/acceptance-icemgd-3008.pdf](paper/acceptance-icemgd-3008.pdf)。
+**发表**：Advances in Economics, Management and Political Sciences（ISSN 2754-1169）
 
 ---
 
@@ -19,9 +18,9 @@ Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: 
 |---|---|
 | 样本区间 | 2015-01-01 至 2025-12-31 日频 |
 | 股票池 | 申万一级 8 个行业的成分股，约 2001 只 |
-| 行业分组 | 按 2015–2025 成交额加权年均换手率中位数，分为高换手（电子/计算机/汽车/传媒）与低换手（公用事业/医药/食品饮料/银行）两组，最大组间差异 4.8 倍 |
+| 行业分组 | 按 2015–2025 成交额加权年均换手率中位数，分为高换手（电子/计算机/汽车/传媒）与低换手（公用事业/医药/食品饮料/银行），最大组间差异 4.8 倍 |
 | 基准 | 沪深 300 指数，市场调整模型计算超额收益 |
-| 数据来源 | AkShare（免费接口） |
+| 数据来源 | AkShare |
 
 起点取 2015 年，因为申万行业分类在 2014 年完成重大修订，且融资融券在 2015 年前后进入成熟期。
 
@@ -41,13 +40,13 @@ Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: 
 
 | 问题 | 处理方式 | 效果 |
 |---|---|---|
-| 16 组参数组合的多重检验偏差 | Bonferroni 校正，α = 0.003，控制 FWER 在 0.05 | 显著性门槛从 14/16 收紧 |
-| 同一股票的重复信号导致非独立观测 | 股票层面聚类，每股票每组合的 CAR 取均值 | 81,546 个信号压缩为 520–1,064（高组）与 401–719（低组）个独立单元；显著组合从 14/16 降至 10/16 |
+| 16 组参数组合的多重检验偏差 | Bonferroni 校正，α = 0.003，控制 FWER 在 0.05 | 显著组合从 14/16 收紧 |
+| 同一股票重复信号导致非独立观测 | 股票层面聚类，每股票每组合 CAR 取均值 | 81,546 个信号压缩为 520–1,064（高组）与 401–719（低组）个独立单元；显著组合 14/16 降至 10/16 |
 | 机制来源不明 | 五组条件消融实验（A/B/C/D/E） | 定位到三重条件的联合必要性 |
 
 ### 事件研究
 
-CAR 采用市场调整模型：AR = R(i,t) − R(m,t)，CAR 为事件窗口内 AR 累加。原值 CAR 另扣除 0.2% 双边交易成本（印花税单边 0.05%、佣金每边约 0.03%、市场冲击估计）得到净 CAR。
+CAR 采用市场调整模型：AR = R(i,t) − R(m,t)，CAR 为事件窗口内 AR 累加。另扣除 0.2% 双边交易成本（印花税单边 0.05%、佣金每边约 0.03%、市场冲击估计）得到净 CAR。
 
 ## 核心结果
 
@@ -55,7 +54,7 @@ CAR 采用市场调整模型：AR = R(i,t) − R(m,t)，CAR 为事件窗口内 A
 
 8 个行业指数序列在 16 组参数下仅识别出 **156 个信号—参数对**，Welch t 检验**全部不显著**（最小 p = 0.133）。W = 3 时高换手组 CAR 达 +6.56%，但最少仅 8 个信号支撑。
 
-这一层结果没有被丢弃：它与个股层面方向一致，恰好证明小样本下统计功效不足，需要下探到个股层面。
+这一层结果未被丢弃：它与个股层面方向一致，恰好证明小样本下统计功效不足，需要下探到个股层面。逐条明细见 `results/signals/industry-signals-car.csv`。
 
 ### 2. 个股层面：动量增强效应显著
 
@@ -72,13 +71,15 @@ CAR 采用市场调整模型：AR = R(i,t) − R(m,t)，CAR 为事件窗口内 A
 | 同参数净 CAR | 高组 5.27%，低组 1.25%，净价差 4.01 个百分点 |
 | 信息比率（组间价差） | 0.27 |
 
+策略绩效明细（`results/tables/strategy-performance.xlsx`，W = 10 / H = 10）：高换手组平均 CAR 5.47%、胜率 60.13%、信息比率 0.32、单次最大亏损 −52.24%；低换手组 1.45%、46.80%、0.12、−67.48%。
+
 ### 3. 消融实验：三重条件缺一不可
 
 | 实验 | 条件组合 | 信号数 | 显著组数 |
 |---|---|---|---|
-| A | 仅条件 1（动量） | — | 0/16 |
-| B | 条件 2 + 3 | — | 0/16 |
-| C | 条件 1 + 2 | — | 0/16 |
+| A | 仅条件 1（动量） | 58,051 | 0/16 |
+| B | 条件 2 + 3 | 1,434 | 0/16 |
+| C | 条件 1 + 2 | 7,559 / 6,276 | 0/16 |
 | **D** | **三重条件完整** | **81,546** | **14/16** |
 | E | 条件 1 + 3 | 132,982 | 0/16 |
 
@@ -114,29 +115,45 @@ CAR 采用市场调整模型：AR = R(i,t) − R(m,t)，CAR 为事件窗口内 A
 paper/
   volume-price-composite-signal-industry-heterogeneity.pdf   论文全文（中文）
   conference-paper-final.docx                                会议投稿版（英文，含表格）
+  acceptance-icemgd-3008.pdf                                  ICEMGD 2026 录用证明
+data/
+  industry_daily/        8 个申万一级行业日线 + 沪深 300 基准（2015–2025）
 results/
-  turnover-ranking.xlsx          8 个申万一级行业换手率排名与高低分组
-  industry-t-test-matrix.xlsx    行业指数层面 T 检验结果矩阵
-  stock-t-test-matrix.xlsx       个股层面 T 检验结果矩阵
-  robustness-t-test-summary.xlsx 16 组 × 3 子区间稳健性检验汇总
+  turnover-ranking.xlsx                行业换手率排名（分组依据）
+  industry-t-test-matrix.xlsx          行业指数层面 T 检验（156 个信号对）
+  stock-t-test-matrix.xlsx             个股层面 T 检验（16 组参数）
+  robustness-t-test-summary.xlsx       16 组 × 3 子区间稳健性汇总
+  tables/                              分组依据、描述性统计、策略绩效、消融与回归结果
+  signals/
+    stock-signals-car.csv.gz           81,546 条个股信号逐条明细（gzip，解压后 6.9 MB）
+    ablation-a-signals.csv.gz          消融 A（仅动量，gzip 后 7.8 MB）
+    ablation-c-signals.csv.gz          消融 C
+    ablation-e-signals.csv.gz          消融 E
+    two-condition-signals.csv.gz       二重条件
+    industry-signals-car.csv           行业层面 156 条信号明细（未压缩）
 figures/
-  fig1-car-heatmap.png           CAR 热力图
-  fig2-t-test-significance.png   T 检验显著性矩阵
-  fig3-industry-car-comparison.png 行业 CAR 对比
-  fig4-car-boxplot.png           CAR 分布箱线图
-  fig5-two-level-car-gap.png     两层次 CAR 差值对比
-  fig6-stock-pvalue-matrix.png   个股 P 值矩阵
-  fig7-car-paths-en.png          CAR 路径图（英文版，含 95% 置信区间）
+  fig1-car-heatmap.png                CAR 热力图
+  fig2-t-test-significance.png        T 检验显著性矩阵
+  fig3-industry-car-comparison.png    行业 CAR 对比
+  fig4-car-boxplot.png                CAR 分布箱线图
+  fig5-two-level-car-gap.png          两层次 CAR 差值对比
+  fig6-stock-pvalue-matrix.png        个股 P 值矩阵
+  fig7-car-paths-en.png               CAR 路径图（英文版，含 95% 置信区间）
+  fig8-car-cumulative-paths-cn.png    CAR 累积路径图（中文版）
 ```
 
-## 关于代码
+信号级 CSV 字段：`signal_date, W, H, vol_ratio, pearson_r, p_value, CAR, industry, group, group_label`。
 
-论文原稿标注 "Code available upon request"。本仓库未收录代码，原因不是保密，而是**流水线依赖的中间数据（约 2001 只个股的日线文件、信号级 CAR 明细）体积远超仓库合理范围**，单独放脚本无法跑通，反而会误导。
+## 关于代码与原始数据
 
-需要复现的话，请邮件联系 yinyue@csu.edu.cn，说明用途，可提供：
+**本仓库不包含研究代码，也不包含逐股原始日线。** 说明如下：
 
-- 分阶段脚本（数据下载 → 换手率分组 → 三重条件信号检测 → 事件研究 → T 检验 → 消融实验 → 图表）
-- 信号级中间结果 CSV
+1. **代码**：研究中使用的脚本未以 `.py` 或 `.ipynb` 形式留存，只保存了运行结果。作者不打算根据论文描述反推一份"看起来一样"的脚本上传——那样无法保证与你实际跑出的数字一致，反而失真。
+2. **逐股数据**：约 2001 只个股的日线文件合计约 100 MB，行业换手率中间数据约 150 MB，远超仓库合理范围，且可用 AkShare 公开接口重新获取，没有必要占用仓库空间。
+
+本仓库提供的是**可核验的复现材料**：行业日线与基准（可直接重跑行业层面）、每一层的 T 检验矩阵、消融实验的全部检验结果、8 万余条信号级明细（可直接复算 t 值、Bonferroni 阈值、聚类后统计量）。用这些材料可以独立验证论文中的每一个数字。
+
+需要完整流水线，请通过本仓库的 Issues 联系作者，说明用途。
 
 技术栈：Python 3（pandas、numpy、scipy、statsmodels）、AkShare。
 
@@ -151,5 +168,7 @@ figures/
 
 ```
 Yin, Y. (2026). Industry-Heterogeneous Momentum Enhancement via Volume-Price
-Composite Signals: An Ablation Study. (Conference paper)
+Composite Signals: An Ablation Study in China's A-Share Market. Paper presented
+at the 10th International Conference on Economic Management and Green
+Development (ICEMGD 2026), Galati, Romania. Paper ID: ICEMGD_3008.
 ```
