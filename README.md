@@ -2,7 +2,7 @@
 
 Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: An Ablation Study in China's A-Share Market
 
-**作者**：殷悦（Yue Yin），中南大学数学与统计学院
+**作者**：殷悦（Yue Yin），中南大学数学与统计学院 · yinyue@csu.edu.cn
 **录用**：ICEMGD 2026（第 10 届国际经济管理与绿色发展国际会议），Paper ID `ICEMGD_3008`，2026 年 9 月 28 日，罗马尼亚加拉茨。录用证明见 [paper/acceptance-icemgd-3008.pdf](paper/acceptance-icemgd-3008.pdf)。
 **发表**：Advances in Economics, Management and Political Sciences（ISSN 2754-1169）
 
@@ -153,7 +153,7 @@ figures/
 
 本仓库提供的是**可核验的复现材料**：行业日线与基准（可直接重跑行业层面）、每一层的 T 检验矩阵、消融实验的全部检验结果、8 万余条信号级明细（可直接复算 t 值、Bonferroni 阈值、聚类后统计量）。用这些材料可以独立验证论文中的每一个数字。
 
-需要完整流水线，请通过本仓库的 Issues 联系作者，说明用途。
+需要完整流水线，请通过本仓库的 Issues 或邮件（yinyue@csu.edu.cn）联系作者，说明用途。
 
 技术栈：Python 3（pandas、numpy、scipy、statsmodels）、AkShare。
 
