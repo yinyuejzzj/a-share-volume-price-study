@@ -2,8 +2,10 @@
 
 Industry-Heterogeneous Momentum Enhancement via Volume-Price Composite Signals: An Ablation Study in China's A-Share Market
 
-**录用**：ICEMGD 2026（第 10 届国际经济管理与绿色发展国际会议），Paper ID `ICEMGD_3008`，2026 年 9 月 28 日，罗马尼亚加拉茨。录用证明见 [paper/acceptance-icemgd-3008.pdf](paper/acceptance-icemgd-3008.pdf)。
-**拟发表载体**：会议论文集 Advances in Economics, Management and Political Sciences（EWA Publishing，ISSN 2754-1169）
+**发表**：2026 年 7 月 21 日发表于 *Advances in Economics, Management and Political Sciences*，第 288 卷，182–188 页（EWA Publishing，ISSN 2754-1169）。
+
+- **DOI**：[10.54254/2754-1169/2026.35463](https://doi.org/10.54254/2754-1169/2026.35463)
+- **会议**：ICEMGD 2026（第 10 届国际经济管理与绿色发展国际会议），Paper ID `ICEMGD_3008`，会议日期为 2026 年 9 月 28 日。[录用证明](paper/acceptance-icemgd-3008.pdf)。
 
 ---
 
